@@ -1,26 +1,27 @@
-// Função de fala
-function falar(texto) {
-    const synth = window.speechSynthesis;
-    const utter = new SpeechSynthesisUtterance(texto);
-    utter.lang = "pt-BR";
-    synth.speak(utter);
+// Selecionar elementos
+const chatBox = document.getElementById("chat");
+const sendBtn = document.getElementById("sendBtn");
+const input = document.getElementById("inputMsg");
+
+// Função para adicionar mensagem no chat
+function addMessage(sender, text) {
+    const div = document.createElement("div");
+    div.className = sender;
+    div.textContent = text;
+    chatBox.appendChild(div);
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Respostas básicas da Sexta-feira
-function responder() {
-    const entrada = document.getElementById("input").value.toLowerCase();
+// Quando clicar no botão Enviar
+sendBtn.onclick = () => {
+    const message = input.value.trim();
+    if (message === "") return;
 
-    if (entrada.includes("oi") || entrada.includes("ola")) {
-        falar("Olá! Eu sou a Sexta-feira. Como posso ajudar?");
-    }
-    else if (entrada.includes("quem é você")) {
-        falar("Eu sou a sua assistente virtual Sexta-feira.");
-    }
-    else if (entrada.includes("horas")) {
-        const horas = new Date().toLocaleTimeString("pt-BR");
-        falar("Agora são " + horas);
-    }
-    else {
-        falar("Desculpe, ainda não aprendi a responder isso.");
-    }
-}
+    // mostra a mensagem do usuário
+    addMessage("user", "Você: " + message);
+
+    input.value = "";
+
+    // Resposta simples da IA por enquanto (teste)
+    addMessage("bot", "Sexta-Feira: Estou online! Em breve terei respostas reais com IA 😉");
+};
