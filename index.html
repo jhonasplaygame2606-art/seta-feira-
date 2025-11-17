@@ -5,24 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sexta-Feira IA</title>
 
-    <!-- Importar o CSS -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #0a0a0a;
+            color: white;
+            font-family: Arial;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 350px;
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        #chat {
+            background: #222;
+            height: 350px;
+            overflow-y: auto;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        #inputMsg {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+            margin-bottom: 10px;
+        }
+
+        #sendBtn {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+
 </head>
 <body>
 
-    <div class="janela">
+    <div class="container">
         <h2>Sexta-Feira IA</h2>
 
-        <input id="userInput" type="text" placeholder="Digite algo...">
+        <div id="chat"></div>
 
-        <button onclick="enviarMensagem()">Enviar</button>
+        <input id="inputMsg" type="text" placeholder="Digite sua mensagem...">
 
-        <p id="resposta"></p>
+        <button id="sendBtn">Enviar</button>
     </div>
 
-    <!-- Importar o JavaScript -->
     <script src="script.js"></script>
-
 </body>
 </html>
-
