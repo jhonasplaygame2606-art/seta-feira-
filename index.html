@@ -4,23 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sexta-Feira IA</title>
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            background: #0a0a0a;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .janela {
+            background: #111;
+            padding: 20px;
+            width: 350px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px #00d0ff;
+            text-align: center;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background: #00d0ff;
+            color: black;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #00a0cc;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="chat-container">
-        <header>
-            <h1>Sexta-Feira</h1>
-            <p>Assistente pessoal</p>
-        </header>
+    <div class="janela">
+        <h2>Sexta-Feira</h2>
+        <p>Fale algo para mim:</p>
 
-        <div id="chat" class="chat-box"></div>
+        <input id="input" type="text" placeholder="Digite aqui..." />
 
-        <div class="input-area">
-            <button id="micBtn">🎤</button>
-            <input id="msgInput" type="text" placeholder="Digite sua mensagem..." />
-            <button id="sendBtn">Enviar</button>
-        </div>
+        <button onclick="responder()">Enviar</button>
     </div>
 
     <script src="script.js"></script>
