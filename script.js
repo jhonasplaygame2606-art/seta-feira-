@@ -3,7 +3,7 @@ const chatBox = document.getElementById("chat");
 const sendBtn = document.getElementById("sendBtn");
 const input = document.getElementById("inputMsg");
 
-// Função para adicionar mensagem no chat
+// Função para adicionar mensagens ao chat
 function addMessage(sender, text) {
     const div = document.createElement("div");
     div.className = sender;
@@ -12,16 +12,27 @@ function addMessage(sender, text) {
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Quando clicar no botão Enviar
-sendBtn.onclick = () => {
+// Função principal de envio
+function sendMessage() {
     const message = input.value.trim();
     if (message === "") return;
 
-    // mostra a mensagem do usuário
+    // Mostra mensagem do usuário
     addMessage("user", "Você: " + message);
 
+    // Limpa campo
     input.value = "";
 
-    // Resposta simples da IA por enquanto (teste)
-    addMessage("bot", "Sexta-Feira: Estou online! Em breve terei respostas reais com IA 😉");
-};
+    // Resposta temporária da IA
+    addMessage("bot", "Sexta-Feira: Estou online! (IA real chegando em breve 🤖)");
+}
+
+// Enviar clicando no botão
+sendBtn.onclick = sendMessage;
+
+// Enviar apertando ENTER
+input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        sendMessage();
+    }
+});
